@@ -1,2 +1,2 @@
 # QuizWebApp
-Simple Project
+Simple assignment project for client.
