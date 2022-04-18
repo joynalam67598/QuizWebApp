@@ -1,0 +1,47 @@
+﻿@model QuizWebApp.Data.Tests
+
+@{
+    ViewData["Title"] = "ShowTestResult";
+}
+
+<h1>ShowTestResult</h1>
+
+<div>
+    <h4>Tests</h4>
+    <hr />
+    <dl class="row">
+       <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalQuestion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TotalQuestion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Score)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Score)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Correct)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Correct)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Wrong)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Wrong)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.QuizDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.QuizDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-controller="Home" asp-action="Index">Back to Home</a>
+</div>
