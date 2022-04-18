@@ -1,0 +1,49 @@
+﻿@using System.Linq
+@model IEnumerable<QuizWebApp.Models.QuizModel>
+
+@{
+    ViewData["Title"] = "Start Quiz";
+}
+<div class="col-sm-12 text-center">
+    <h3>Hello Test</h3>
+    <h5>Date - @DateTime.Now.ToShortDateString()</h5>
+</div>
+
+
+<form method="post" asp-controller="Quiz" asp-action="ShowTestResult">
+    @{
+        int count = 0;
+        foreach (var item in Model)
+        {
+            count += 1;
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-sm-12 bg-light mt-2 p-1 border border-secondary border-1">
+                @count. @item.Question
+            </div>
+            <input type="hidden" name="questionId" value="@item.Id"/>
+            <div class="col-sm-12 row mt-2">
+                <div class="col-sm-6 bg-light m-1 border-secondary">
+                    <input type="radio" value="A" required name="question_@item.Id"/>
+                    <label >a.  @item.OptionA</label>
+                </div>
+                <div class="col-sm-6 bg-light m-1 border-secondary">
+                    <input type="radio" value="B" required name="question_@item.Id"/>
+                    <label>b.  @item.OptionB</label>
+                </div>
+                <div class="col-sm-6 bg-light m-1 border-secondary">
+                    <input type="radio" value="C" required name="question_@item.Id"/>
+                    <label>c.  @item.OptionC</label>
+                </div>
+                <div class="col-sm-6 bg-light m-1 border-secondary">
+                    <input type="radio" value="D"required name="question_@item.Id"/>
+                    <label>d.  @item.OptionD</label>
+                </div>
+            </div>
+            <span asp-validation-for="@item.Id" class="text-danger"></span>
+        }
+    }
+    <div class="col-sm-6">
+        <input type="submit" onclick="return confirm('Do you want to submit?')" value="Submit" class="btn btn-block btn-info mt-3  mb-2" />
+    </div>
+
+</form>

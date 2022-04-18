@@ -1,0 +1,36 @@
+﻿@model IEnumerable<QuizWebApp.Models.TestModel>
+
+@{
+    ViewData["Title"] = "Previous Result";
+}
+
+<h1>Previous Test Result</h1>
+
+<table id="example" class="table table-striped" style="width:100%">
+    <thead>
+    <tr>
+        <th>SL</th>
+        <th>Total Question</th>
+        <th>Correct</th>
+        <th>Wrong</th>
+        <th>Score</th>
+        <th>Test date</th>
+    </tr>
+    </thead>    <tbody>
+@{
+    int count = 0;
+    foreach (var test in Model)
+    {
+        count += 1;
+        <tr>
+            <td>@count</td>
+            <td>@test.TotalQuestion</td>
+            <td>@test.Correct</td>
+            <td>@test.Wrong</td>
+            <td>@test.Score</td>
+            <td>@test.QuizDate.ToShortDateString()</td>
+        </tr>
+    }
+}
+    </tbody>
+</table>
